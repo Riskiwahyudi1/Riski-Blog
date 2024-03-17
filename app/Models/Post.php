@@ -14,6 +14,7 @@ class Post extends Model
 
     // kalau $guarded yg di dalam aray gak boleh di isi sedangakan yang di lain nya boleh di isi
     protected $guarded = ['id'];
+    protected $with = ['author', 'category'];
 
     public function category(){
         return $this->belongsTo(Category::class);

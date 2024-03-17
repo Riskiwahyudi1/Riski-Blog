@@ -24,7 +24,7 @@ class HomeController extends Controller{
     public function blog(){
         return view('Posts', [
             "title" => 'All Posts',
-            "posts" => Post::with(['author', 'category'])->latest()->get(),
+            "posts" => Post::latest()->get(),
         ]);
     }
 

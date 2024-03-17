@@ -19,11 +19,11 @@ class PostFactory extends Factory
     public function definition()
     {
         return [
-            'title' => $this->faker->sentence(mt_rand(2, 8)),
+            'title' => $this->faker->sentence(mt_rand(2, 5)),
             'user_id' => mt_rand(1,4),
             'category_id' => mt_rand(1,2),
-            'slug' => $this->faker->slug(3, 5),
-            'excerpt' => $this->faker->sentence(mt_rand(8, 21)),
+            'slug' => $this->faker->slug(11, 16),
+            'excerpt' => $this->faker->sentence(mt_rand(4, 8)),
             'body' => $this->faker->paragraph(10),
         ];
     }
