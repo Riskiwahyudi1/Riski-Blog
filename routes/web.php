@@ -12,10 +12,10 @@ Route::get('/blog', [HomeController::class, 'blog']);
 Route::get('/post/{post:slug}', [HomeController::class, 'post']);
 
 Route::get('/category/{category:slug}', function(Category $category){
-    return view('category', [
+    return view('posts', [
         
-        'title' =>  $category->name ,
-        'posts' => $category->posts ,
+        'title' =>  "Post By category :  $category->name ",
+        'posts' => $category->posts->load(['author', 'category']) ,
         'category' =>  $category->name,
     ]);
     
@@ -28,10 +28,10 @@ Route::get('/categories', function(){
     ]);
 });
 Route::get('/author/{user:username}', function (User $user){
-    return view('blog', [
-        "title" => "user post",
+    return view('posts', [
+        "title" => "Post By author :  $user->name ",
         "user" => "$user->name",
-        "posts" => $user->posts,
+        "posts" => $user->posts->load(['author', 'category']),
     ]);
 });
     

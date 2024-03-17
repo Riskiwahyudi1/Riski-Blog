@@ -22,15 +22,15 @@ class HomeController extends Controller{
         ]);
     }
     public function blog(){
-        return view('blog', [
-            "title" => "Posts",
-            "posts" => Post::all(),
+        return view('Posts', [
+            "title" => 'All Posts',
+            "posts" => Post::with(['author', 'category'])->latest()->get(),
         ]);
     }
 
     public function post(Post $post){            
             
-        return view('posts', [
+        return view('post', [
             "title" => " single Post",
             "post" => $post,
         ]);
