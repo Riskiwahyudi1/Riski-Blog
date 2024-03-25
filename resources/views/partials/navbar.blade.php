@@ -8,13 +8,16 @@
         <div class="collapse navbar-collapse " id="navbarNav">
             <ul class="navbar-nav">
                 <li class="nav-item">
-                    <a class="nav-link  {{ $title === 'Home' ? 'text-white' : '' }}"  href="/">Home</a>
+                    <a class="nav-link  {{ $active === 'Home' ? 'text-white' : '' }}"  href="/">Home</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link  {{ $title === 'About' ? 'text-white' : '' }}" href="/about">About</a>
+                    <a class="nav-link  {{ $active === 'About' ? 'text-white' : '' }}" href="/about">About</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link  {{ $title === 'Posts' ? 'text-white ' : '' }}" href="/blog">Blog</a>
+                    <a class="nav-link  {{ $active === 'Blog' ? 'text-white ' : '' }}" href="/blog">Blog</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link  {{ $active === 'Categories' ? 'text-white ' : '' }}" href="/categories">Categories</a>
                 </li>
 
             </ul>

@@ -15,6 +15,7 @@ Route::get('/category/{category:slug}', function(Category $category){
     return view('posts', [
         
         'title' =>  "Post By category :  $category->name ",
+        'active' => 'Categories',
         'posts' => $category->posts->load(['author', 'category']) ,
         'category' =>  $category->name,
     ]);
@@ -24,12 +25,14 @@ Route::get('/category/{category:slug}', function(Category $category){
 Route::get('/categories', function(){
     return view('categories', [
         'title' => 'Daftar Category',
+        'active' => 'Categories',
         'categories' => Category::all(),
     ]);
 });
 Route::get('/author/{user:username}', function (User $user){
     return view('posts', [
         "title" => "Post By author :  $user->name ",
+        'active' => 'author',
         "user" => "$user->name",
         "posts" => $user->posts->load(['author', 'category']),
     ]);

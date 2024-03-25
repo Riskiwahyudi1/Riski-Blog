@@ -12,18 +12,20 @@ class HomeController extends Controller{
     public function index(){
         return view('home', [
             "title" => "Home",
+            'active' => 'Home',
         ]);
     }
     public function about(){
         return view('about', [
             "title" => "About",
             "nama" => "Riski Wahyudi",
-
+            'active' => 'About',
         ]);
     }
     public function blog(){
         return view('Posts', [
             "title" => 'All Posts',
+            'active' => 'Blog',
             "posts" => Post::latest()->get(),
         ]);
     }
@@ -32,6 +34,7 @@ class HomeController extends Controller{
             
         return view('post', [
             "title" => " single Post",
+            'active' => 'posts',
             "post" => $post,
         ]);
     }

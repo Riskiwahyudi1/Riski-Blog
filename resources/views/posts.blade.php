@@ -17,8 +17,8 @@
         <div class="row">
             @foreach ($posts->skip(1) as $post)                
                 <div class="col-md-3">
-                    <div class="card" style="width: 18rem;">
-                        <div class="position-absolute text-white "><p>{{ $post->category->name }} </p></div>
+                    <div class="card">
+                        <div class="position-absolute text-white bg-primary px-3 rounded"><p>{{ $post->category->name }} </p></div>
                         <img src="https://source.unsplash.com/600x400/?{{ $post->category->name }}" class="card-img" alt="...">
                         <div class="card-body">
                         <h5 class="card-title"><a href="/post/{{ $post->slug }}" class="text-decoration-none text-dark">{{ $post->title }}</a></h5>
