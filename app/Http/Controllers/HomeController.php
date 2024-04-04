@@ -10,6 +10,7 @@ use App\Http\Controllers\Controller;
 class HomeController extends Controller{
 
     public function index(){
+
         return view('home', [
             "title" => "Home",
             'active' => 'Home',
@@ -23,10 +24,16 @@ class HomeController extends Controller{
         ]);
     }
     public function blog(){
+        $posts = Post::latest();
+
+        if(request('search')){
+            $posts->where('title', 'like', '%' . request('search') . '%')
+                  ->orwhere('body', 'like', '%' . request('search') . '%');
+        }
         return view('Posts', [
             "title" => 'All Posts',
             'active' => 'Blog',
-            "posts" => Post::latest()->get(),
+            "posts" => $posts->get(),
         ]);
     }
 

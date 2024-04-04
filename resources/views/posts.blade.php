@@ -3,7 +3,17 @@
 @section('container')
     <h3 class="mt-3">{{ $title }}</h3>
 </small>
-          
+    <div class="container d-flex justify-content-center py-3">
+        <div class="col-md-6">
+            <form class="d-flex" role="search" action="/blog">
+                <input class="form-control me-2" type="text" placeholder="Search" name="search" value="{{ request('search') }}">
+                <button class="btn btn-outline-primary" type="submit">Search</button>
+            </form>
+        </div>
+    </div>
+
+    @if ($posts->count())
+    
     <div class="card text-bg-dark mt-3">
         <img src="https://source.unsplash.com/1200x400/?{{ $posts[0]->category->name }}" class="card-img" alt="...">
         <div class="card-img-overlay">
@@ -31,5 +41,16 @@
             @endforeach
         </div>
       </div>
+    
+    @else
+      <div class="container mt-5">
+        <div class="d-flex justify-content-center">
+            <p>Search posts not found!</p>
+
+        </div>
+      </div>
+    @endif
+
+    
 
 @endsection
